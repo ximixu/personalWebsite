@@ -1,10 +1,167 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>index.html</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xiao Xu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #ecf0f1;
+        }
+
+        section {
+            background-color: white;
+            margin: 2rem 0;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .skill-item {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .contact-info a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .experience-item ul {
+            margin-left: 2rem;
+            margin-top: 0.5rem;
+        }
+
+        .project-item ul {
+            margin-left: 2rem;
+            margin-top: 0.5rem;
+        }
+
+    </style>
 </head>
 <body>
-    <p>Hello world!</p>
-    <p>I don't like front end<p>
+    <header>
+        <div class="header-content">
+            <h1>Xiao Xu</h1>
+            <p class="subtitle">Software Developer</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                Hi! My name is Xiao (but I go by Michael), and I'm an aspiring software developer. I'm about three months from finishing my bachelor's degree in computer science. It's looking like a pretty rough job market to graduate into, but I'm doing my best.
+            </p>
+        </section>
+
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="experience-item">
+                <h3>Micro-Internship</h3>
+                <p>CodeDay | Feb. 2025</p>
+                <ul>
+                    <li>Added new test case to open-source project Open Energy Dashboard</li>
+                    <li>Organized team meetings and assisted teammates with environment setup</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-item">
+                <h3>Dota match predictor</h3>
+                <ul>
+                    <li>Trained various ML models on Dota 2 match data to predict outcomes</li>
+                    <li>Achieved average prediction accuracy of 70% halfway through test matches</li>
+                </ul>
+                <p>Technologies used: Pytorch, Pandas</p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">Java</div>
+                <div class="skill-item">Python</div>
+                <div class="skill-item">Kotlin</div>
+                <div class="skill-item">Git</div>
+                <div class="skill-item">Android Studio</div>
+                <div class="skill-item">AWS</div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <div class="contact-info">
+                <a href="https://github.com/ximixu" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/ximixu" target="_blank">LinkedIn</a>
+            </div>
+        </section>
+    </div>
 </body>
 </html>
