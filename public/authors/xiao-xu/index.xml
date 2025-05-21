@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Xiao Xu on ximixu</title>
+    <link>http://localhost:1313/authors/xiao-xu/</link>
+    <description>Recent content in Xiao Xu on ximixu</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 20 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/authors/xiao-xu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hello World!</title>
+      <link>http://localhost:1313/blog/template/</link>
+      <pubDate>Tue, 20 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/template/</guid>
+      <description>&lt;p&gt;Hello world!&lt;/p&gt;&#xA;&lt;p&gt;As part of a CodeDay Labs project I&amp;rsquo;m working on, I&amp;rsquo;m supposed to get a devblog up and running.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,47 @@
+baseURL = 'https://ximixu.dev'
+languageCode = 'en-us'
+title = 'ximixu'
+theme = "hugo-coder"
+enableEmoji = true
+
+[markup]
+[markup.highlight]
+style = "github-dark"
+
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
+
+[params]
+    author = "Xiao Xu"
+    description = "Xiao Xu's personal website"
+    keywords = "blog,developer,personal"
+    info = "Software Dev"
+    avatarURL = "/images/avatar.jpeg"
+    dateFormat = "January 2, 2006"
+    since = 2025
+    colorscheme = "auto"
+    enableTwemoji = true
+
+[taxonomies]
+category = "categories"
+series = "series"
+tag = "tags"
+author = "authors"  
+
+[[menu.main]]
+    name = "Blog"
+    weight = 1
+    url = "posts/"
+
+[[params.social]]
+    name = "github"
+    icon = "fa-brands fa-github fa-2x"
+    weight = 1
+    url = "https://github.com/ximixu"
+
+[[params.social]]
+    name = "linkedin"
+    icon = "fa-brands fa-linkedin fa-2x"
+    weight = 1
+    url = "https://linkedin.com/in/ximixu"

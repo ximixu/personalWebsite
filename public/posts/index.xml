@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on ximixu</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>Recent content in Posts on ximixu</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 20 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hello World!</title>
+      <link>http://localhost:1313/posts/helloworld/</link>
+      <pubDate>Tue, 20 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/helloworld/</guid>
+      <description>&lt;p&gt;Hello world!&lt;/p&gt;&#xA;&lt;p&gt;As part of a CodeDay Labs project I&amp;rsquo;m working on, I&amp;rsquo;m supposed to get a devblog up and running. I figured since I already had a &lt;em&gt;very&lt;/em&gt; basic personal website running I could just attach it to that. One issue, though: it was just html and css, and I don&amp;rsquo;t want to deal with writing posts out in raw html.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;oldsite.png&#34; alt=&#34;Image of my old website&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;In case you couldn&amp;rsquo;t tell from my old page, I&amp;rsquo;m not great at front end stuff. However, I already use Obsidian to take notes, and I was aware of Obsidian Publish, so I figured that there was probably some kind of way to set up a blog using Obsidian (and without paying for Publish). Also, my site is already on Cloudflare pages, so it&amp;rsquo;d be nice if I could keep using that.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
