@@ -18,4 +18,6 @@ In case you couldn't tell from my old page, I'm not great at front end stuff. Ho
 Fortunately, someone has, in fact, already done that, and posted their process to a blog:
 https://ingau.me/blog/how-i-write-my-blogs-in-obsidian-and-publish-instantly/
 
-I haven't followed the directions step-by-step (I'm using a different theme, for one) but my process was more or less the same. 
+I haven't followed the directions step-by-step (I'm using a different theme, for one) but my process was more or less the same.
+
+Now I can write these posts out in Obsidian and then a simple git push should see it deployed onto Cloudflare Pages. If you're reading this, then that means it worked.
