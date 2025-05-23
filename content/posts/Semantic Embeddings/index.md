@@ -32,7 +32,7 @@ i would split big tech salary in half with someone if we can trade off working f
 ```
 Looks good!
 
-Now to generate the embeddings, I use [all-MiniLM-L6-v2]([sentence-transformers/all-MiniLM-L6-v2 · Hugging Face](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2)):
+Now to generate the embeddings, I use [all-MiniLM-L6-v2](sentence-transformers/all-MiniLM-L6-v2 · Hugging Face](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2):
 ```
 from sentence_transformers import SentenceTransformer
 model = SentenceTransformer('all-MiniLM-L6-v2')
