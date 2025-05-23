@@ -32,13 +32,13 @@ i would split big tech salary in half with someone if we can trade off working f
 ```
 Looks good!
 
-Now to generate the embeddings, I use [all-MiniLM-L6-v2](sentence-transformers/all-MiniLM-L6-v2 · Hugging Face](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2):
+Now to generate the embeddings, I use [all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2):
 ```
 from sentence_transformers import SentenceTransformer
 model = SentenceTransformer('all-MiniLM-L6-v2')
 embeddings = model.encode(tweets_text)
 ```
-Using these embeddings, I first tried to cluster tweets together so I could use an LLM to describe the clusters, but I ran into an issue where I just couldn't seem to get reasonably sized clusters out of the data. That's probably an issue on my end, but for now I'll just implement semantic similarity search instead:
+Using these embeddings, I first tried to cluster tweets together so I could use an LLM to describe the clusters, but I ran into an issue where I just couldn't seem to get reasonably sized clusters out of the data. That's probably on my end, but for now I'll just implement semantic similarity search instead:
 ```
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
