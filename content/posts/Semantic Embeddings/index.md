@@ -7,9 +7,10 @@ tags = [
     "memetics",
 ]
 +++
-As part of this CodeDay memetics internship, [we're supposed to get started with semantic embeddings.]((https://dev.to/omar4ur/open-source-semantic-embedding-search-clustering-in-nodejs-23om)However, after completing this quick tutorial, I felt like it might be more interesting to do this with a slightly larger dataset. Given that this is a memetics internship it felt appropriate to use data from Twitter, the website currently known as X.
+As part of this CodeDay memetics internship, [we're supposed to get started with semantic embeddings.](https://dev.to/omar4ur/open-source-semantic-embedding-search-clustering-in-nodejs-23om)However, after completing this quick tutorial, I felt like it might be more interesting to do this with a slightly larger dataset. Given that this is a memetics internship it felt appropriate to use data from Twitter, the website currently known as X.
 
-Since I'm not going to pay for API access or publicly violate Twitter's TOS, I'll get some tweets from [community archive](community-archive.org). The easiest way for me to do this is just to get all the tweets from one user as a .json from object storage, so I'm just going to use the example provided in the docs at [fabxmporizzqflnftavs.supabase.co/storage/v1/object/public/archives/defenderofbasic/archive.json](https://fabxmporizzqflnftavs.supabase.co/storage/v1/object/public/archives/defenderofbasic/archive.json)
+Since I'm not going to pay for API access or publicly violate Twitter's TOS, I'll get some tweets from [community archive](community-archive.org). The easiest way for me to do this is just to get all the tweets from one user as a .json from object storage, so I'm just going to use the example provided in the docs at
+[fabxmporizzqflnftavs.supabase.co/storage/v1/object/public/archives/defenderofbasic/archive.json](https://fabxmporizzqflnftavs.supabase.co/storage/v1/object/public/archives/defenderofbasic/archive.json)
 ```
 import json
 with open('archive.json', 'r', encoding='utf-8') as f:
