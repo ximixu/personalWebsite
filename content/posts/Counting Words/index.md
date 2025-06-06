@@ -118,6 +118,6 @@ def plot_word_frequency(word, words_dict):
     plt.tight_layout()
     plt.show()
 ```
-Here's the output for the word "company":
+Here's the output for the word "company":  
 ![graph of usage of the word company over time](graph.png)
 I still have to do some more work adapting this code to (and acquiring) a larger dataset, but this is most of the way there.
