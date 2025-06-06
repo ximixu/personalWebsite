@@ -9,9 +9,8 @@ tags = [
 +++
 As part of this CodeDay memetics internship, [we're supposed to get started with semantic embeddings.](https://dev.to/omar4ur/open-source-semantic-embedding-search-clustering-in-nodejs-23om)However, after completing this quick tutorial, I felt like it might be more interesting to do this with a slightly larger dataset. Given that this is a memetics internship it felt appropriate to use data from Twitter, the website currently known as X.
 
-Since I'm not going to pay for API access or publicly violate Twitter's TOS, I'll get some tweets from [community archive](community-archive.org). The easiest way for me to do this is just to get all the tweets from one user as a .json from object storage, so I'm just going to use the example provided in the docs at
-[fabxmporizzqflnftavs.supabase.co/storage/v1/object/public/archives/defenderofbasic/archive.json](https://fabxmporizzqflnftavs.supabase.co/storage/v1/object/public/archives/defenderofbasic/archive.json)
-```
+Since I'm not going to pay for API access or publicly violate Twitter's TOS, I'll get some tweets from [community archive](community-archive.org). The easiest way for me to do this is just to get all the tweets from one user as a .json from object storage, so I'm just going to use [the example provided in the docs](https://fabxmporizzqflnftavs.supabase.co/storage/v1/object/public/archives/defenderofbasic/archive.json)
+```python
 import json
 with open('archive.json', 'r', encoding='utf-8') as f:
     data = json.load(f)
@@ -23,7 +22,7 @@ for i in range(5):
     print(tweets_text[i])
 ```
 And this gives the output:
-```
+```text
 @RichardCovetous [https://t.co/knqLMreP9F](https://t.co/knqLMreP9F)
 ...i guess this is also known as "making your own company &amp; contracting out to a big company"
 i would split big tech salary in half with someone if we can trade off working for 6 months and keep each other updated &amp; ramped up
@@ -33,13 +32,13 @@ i would split big tech salary in half with someone if we can trade off working f
 Looks good!
 
 Now to generate the embeddings, I use [all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2):
-```
+```python
 from sentence_transformers import SentenceTransformer
 model = SentenceTransformer('all-MiniLM-L6-v2')
 embeddings = model.encode(tweets_text)
 ```
 Using these embeddings, I first tried to cluster tweets together so I could use an LLM to describe the clusters, but I ran into an issue where I just couldn't seem to get reasonably sized clusters out of the data. That's probably on my end, but for now I'll just implement semantic similarity search instead:
-```
+```python
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 
@@ -54,7 +53,7 @@ for i, tweet in enumerate(top_tweets, 1):
     print(f"{i}. {tweet}\n")
 ```
 And this outputs:
-```
+```text
 1. this is so clever, memetic fence? [https://t.co/5D1FAwpp7T](https://t.co/5D1FAwpp7T)
 
 2. next step: generate this list for everyone in the Twitter Community Archive, then make a list of everyone who tweets about "Memetic Dynamics" and "Restless Pursuit of Meaning" so we can all be friends [https://t.co/uDMFRCcoT4](https://t.co/uDMFRCcoT4) [https://t.co/kRCYpVwsL9](https://t.co/kRCYpVwsL9)
