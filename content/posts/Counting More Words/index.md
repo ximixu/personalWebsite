@@ -8,15 +8,15 @@ tags = [
 	 "opensearch"
 ]
 +++
-Now that I'm more or less done with school (getting my bachelor's in CS! yay!) I can finally dedicate a bit more time to this. A few weeks ago, I threw together a simple word counter for a single account's archive.json. Now I'd like to expand that out to a larger dataset; namely, the post.csv from [community archive's huggingface]([CommunityArchive/CommunityArchive at main](https://huggingface.co/datasets/CommunityArchive/CommunityArchive/tree/main).
+Now that I'm more or less done with school (getting my bachelor's in CS! yay!) I can finally dedicate a bit more time to this. A few weeks ago, I threw together a simple word counter for a single account's archive.json. Now I'd like to expand that out to a larger dataset; namely, the post.csv from [community archive's huggingface](https://huggingface.co/datasets/CommunityArchive/CommunityArchive/tree/main).  
 
-First things first, I actually have to load the rather sizable file. I've used pandas in the past for machine learning, so I'm pretty sure that'll work:
+First things first, I actually have to load the rather sizable file. I've used pandas in the past for machine learning, so I'm pretty sure that'll work:  
 ```python
 import pandas as pd
 data = pd.read_csv('../post.csv')
 data.info()
 ```
-This tells me what the columns are, along with some other information:
+This tells me what the columns are, along with some other information:  
 ```text
 <class 'pandas.core.frame.DataFrame'>
 RangeIndex: 6135978 entries, 0 to 6135977
@@ -40,7 +40,7 @@ Data columns (total 14 columns):
 dtypes: object(14)
 memory usage: 655.4+ MB
 ```
-That's a lot of data! It's probably enough that it's worth avoiding writing out regular python loops. In fact, I probably want to avoid using python altogether. If I search for a word and get the count to plot it over time:
+That's a lot of data! It's probably enough that it's worth avoiding writing out regular python loops. In fact, I probably want to avoid using python altogether. If I search for a word and get the count to plot it over time:  
 ```python
 import matplotlib.pyplot as plt
 import datetime as dt
@@ -54,12 +54,12 @@ graph = daily.plot()
 graph.set_xlim(pd.to_datetime(start_date), pd.to_datetime(end_date))
 plt.show()
 ```
-This takes roughly ten seconds to run. Now, I haven't used pandas so AI wrote a lot of this and I'm not sure it's the most efficient, but spending several seconds per word really isn't going to work if I also want to search for spikes in word usage or anything like that. One of my attempts at it ran for six hours before I cancelled it:
+This takes roughly ten seconds to run. Now, I haven't used pandas so AI wrote a lot of this and I'm not sure it's the most efficient, but spending several seconds per word really isn't going to work if I also want to search for spikes in word usage or anything like that. One of my attempts at it ran for six hours before I cancelled it:  
 
 ![A jupyterlab cell that took over 6 hours to not complete](very_slow_operation.png)
-Clearly I should try something else. Coincidentally, I've been trying to get started with OpenSearch for an internship, and while I'm still a little fuzzy on what exactly it's for, it does sound like it'd be suitable for my purposes.
+Clearly I should try something else. Coincidentally, I've been trying to get started with OpenSearch for an internship, and while I'm still a little fuzzy on what exactly it's for, it does sound like it'd be suitable for my purposes.  
 
-First off, I need to get an instance of OpenSearch up and running. They provide a [quickstart using docker]([Installation quickstart - OpenSearch Documentation](https://docs.opensearch.org/docs/latest/getting-started/quickstart/), but the example compose uses a couple nodes and a security plugin that I don't need so instead I'll be using this modified version:
+First off, I need to get an instance of OpenSearch up and running. They provide a [quickstart using docker](https://docs.opensearch.org/docs/latest/getting-started/quickstart/), but the example compose uses a couple nodes and a security plugin that I don't need so instead I'll be using this modified version:  
 ```docker compose
 services:
   opensearch:
@@ -107,7 +107,7 @@ volumes:
 networks:
   opensearch-net:
 ```
-After bringing this up with `docker compose up`, I use this script (mostly written with the new [Gemini CLI]([google-gemini/gemini-cli: An open-source AI agent that brings the power of Gemini directly into your terminal.](https://github.com/google-gemini/gemini-cli) to ingest all my data:
+After bringing this up with `docker compose up`, I use this script (mostly written with the new [Gemini CLI]([google-gemini/gemini-cli: An open-source AI agent that brings the power of Gemini directly into your terminal.](https://github.com/google-gemini/gemini-cli) to ingest all my data:  
 ```typescript
 import { createReadStream } from 'fs';
 import { parse } from 'csv-parse';
@@ -242,10 +242,10 @@ async function main() {
 
 main();
 ```
-Now, I'm even less familiar with typescript and OpenSearch than I am pandas, but this does actually seem to work. Now all I need to do is query OpenSearch to make sure that the data is in there:
+Now, I'm even less familiar with typescript and OpenSearch than I am pandas, but this does actually seem to work. Now all I need to do is query OpenSearch to make sure that the data is in there:  
 ```bash
 curl -X GET "http://localhost:9200/posts/_search?pretty" -H "Content-Type: application/json" -d '{"size": 3}'
 ```
-Interestingly, the return seems to indicate that OpenSearch automatically created mappings for some of the columns that I didn't define, so that's neat. Still, since the data is in there I can just use the OpenSearch dashboard to generate graphs:
+Interestingly, the return seems to indicate that OpenSearch automatically created mappings for some of the columns that I didn't define, so that's neat. Still, since the data is in there I can just use the OpenSearch dashboard to generate graphs:  
 ![opensearch dashboard visualization](graph_of_tweets_containing_the_word_election_per_month.png)
 Searching for the word "election", there's a spike every October or so on years where there's a US Presidential election, so it seems like it's working as expected. And more importantly, I can search for new words almost instantly; the logs indicate that the requests are handled in just dozens of milliseconds. This is literally many orders of magnitude faster than my (likely very poor) pandas implementation. Nice!
