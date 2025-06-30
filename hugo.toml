@@ -50,3 +50,18 @@ author = "authors"
     icon = "fa-brands fa-linkedin fa-2x"
     weight = 1
     url = "https://linkedin.com/in/ximixu"
+
+[params.giscus]
+  repo = "ximixu/personalWebsite"
+  repoID = "R_kgDONRAP9Q"
+  category = "Announcements"
+  categoryID = "DIC_kwDONRAP9c4CsQ2s"
+  mapping = "pathname"
+  term = ""
+  strict = "0"
+  reactionsEnabled = "1"
+  emitMetadata = "0"
+  inputPosition = "top"
+  theme = "noborder_gray"
+  lang = "en"
+  loading = "lazy"
