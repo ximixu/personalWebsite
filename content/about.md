@@ -1,2 +1,2 @@
 #### About Me
-I should have something here but I can't think of anything interesting to say. Check out my LinkedIn?
+Michael — software engineer working remotely from the West Coast. I occasionally write about things I'm learning, mostly in the NLP/data space. Outside of work, I'm usually reading web fiction or playing games with friends.
